@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    
+    <PropertyGroup>
+        <GamePath>C:\Program Files (x86)\Steam\steamapps\common\SpiderHeck Demo</GamePath>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <Target Name="Copy" AfterTargets="Build">
+        <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFiles="$(GamePath)/BepInEx/plugins/$(AssemblyName).dll" />
+    </Target>
+
+    <ItemGroup>
+        <Reference Include="../Libraries/MyScriptAssembly.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="../Libraries/0Harmony.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="../Libraries/UnityEngine.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="../Libraries/BepInEx.dll">
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="UnityEngine" Version="5.6.1" />
+    </ItemGroup>
+</Project>
