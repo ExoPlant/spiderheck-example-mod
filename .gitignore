@@ -1,5 +1,8 @@
 bin/
 .idea/
+*.dll
+*.pdb
+*.deps.json
 obj/
 /packages/
 riderModule.iml
